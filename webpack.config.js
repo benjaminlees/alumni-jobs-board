@@ -19,13 +19,13 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-          template: 'app/index.tpl.html',
+          template: 'app/index.html',
           inject: 'body',
           filename: 'index.html'
         }),
-        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
           'process.env.NODE_ENV': JSON.stringify('development')
         })
@@ -35,11 +35,11 @@ module.exports = {
             {
                 test: /\.js?$/,
                 exclude: /node_modules/,
-                loader: 'babel'
+                loader: 'babel-loader'
             }, 
             {
                 test: /\.json?$/,
-                loader: 'json'
+                loader: 'json-loader'
             },
             {
                 test: /\.scss$/,
