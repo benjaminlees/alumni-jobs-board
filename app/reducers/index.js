@@ -3,18 +3,39 @@ import { routerReducer as routing } from 'react-router-redux';
 import { combineReducers } from 'redux';
 import * as types from '../actions/types';
 
-const list = (state = ['benji', 'james'], action) => {
+const companies = (state = ['mono', 'cram'], action) => {
     switch (action.type) {
-        case types.ADD:
-            return action.ADD;
+        case types.ADD_COMPANY:
+          return [...state, action.company ];
+        default:
+            return state;
+    }
+};
+
+const users = (state = ['david', 'james', 'karl'], action) => {
+    switch (action.type) {
+        case types.ADD_USER:
+            return [...state, action.user];
+        default:
+            return state;
+    }
+};
+
+const homeState = (state = { shownList: "COMPANY" }, action) => {
+    switch (action.type) {
+        case types.SWITCH_LIST:
+            return { ...state, shownList: action.list };
         default:
             return state;
     }
 };
 
 
+
 const rootReducer = combineReducers({
-    list,
+    companies,
+    users,
+    homeState,
     routing
 });
 

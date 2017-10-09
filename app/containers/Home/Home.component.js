@@ -1,31 +1,43 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-// import { home } from './Home.component.scss';
+import List from '../../components/List/List.component';
+import { home, homeButtonContainer } from './Home.component.scss';
+import * as actions from '../../actions/index.js'
 
-const Home = ({ list }) => {
+const Home = ({ users, companies, shownList, switchList }) => {
     return (
-        <div>
-          {
-            list.map((item, index) => <div key={ index }>{item}</div>)
-          }
+        <div className="home">
+            <div className="home_buttonContainer">
+                <button className="home_button" onClick={() => switchList('USER')}>users</button>
+                <button className="home_button" onClick={() => switchList('COMPANY')}>companies</button>
+            </div>
+            { shownList === "USER" ? <List li={users} /> : ''}
+            { shownList === "COMPANY" ? <List li={companies} /> : ''}
         </div>
     );
 };
 
 Home.propTypes = {
-    user: PropTypes.string
+    users: PropTypes.array,
+    companies: PropTypes.array,
+    shownList: PropTypes.string
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ users, companies, homeState }) => {
     return {
-        list: state.list
+        users,
+        companies,
+        shownList: homeState.shownList
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {};
+    return {
+        switchList: list => dispatch(actions.switchList(list))
+    };
 };
+
 
 export default connect(
     mapStateToProps,

@@ -14,7 +14,7 @@ export default function Root({store, history}) {
                 <ConnectedRouter history={history}>
                     <Route path="/" component={App}/>
                 </ConnectedRouter>
-                {/* <DevTools /> */}
+                <DevTools />
             </div>
         </Provider>
     );

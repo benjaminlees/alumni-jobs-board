@@ -8,7 +8,7 @@ export const history = createHistory();
 const middleware = routerMiddleware(history);
 
 export function configureStore(initialState) {
-    return createStore(
+    const store = createStore(
         rootReducer,
         initialState,
         compose(
@@ -16,4 +16,12 @@ export function configureStore(initialState) {
             DevTools.instrument()
         )
     );
+    if (module.hot) {
+        // Enable Webpack hot module replacement for reducers
+        module.hot.accept('../reducers', () => {
+            const nextRootReducer = require('../reducers/index');
+            store.replaceReducer(nextRootReducer);
+        });
+    }
+    return store;
 }
