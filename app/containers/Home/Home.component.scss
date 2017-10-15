@@ -1,26 +1,24 @@
-.home {
+.Home {
   position: relative;
   top: 2em;
   width: 100%;
   height: 100vh;
-}
-
-.home_buttonContainer {
-  position: absolute;
-  width: 6em;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-
-.home_button {
-  position: relative;
-  width: 100%;
-  margin: 0 2em 2em 0;
-  box-shadow: none;
-  border: none;
-  background: deepskyblue;
-  color: white;
-  height: 3em;
-  text-transform: capitalize;
+  &-buttonContainer {
+    position: absolute;
+    width: 6em;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  &-button {
+    position: relative;
+    width: 100%;
+    height: 3em;
+    margin: 0 2em 2em 0;
+    border: none;
+    box-shadow: none;
+    background: deepskyblue;
+    color: white;
+    text-transform: capitalize;
+  }
 }

@@ -113,11 +113,7 @@
     /**
      * Style
      */
-    "indent": [
-      2,
-      4,
-      { "SwitchCase": 1 }
-    ],                              // http://eslint.org/docs/rules/indent
+    "indent": ["error", 2],
     "brace-style": [
       2,                          
       "1tbs", {
