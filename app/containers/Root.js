@@ -1,30 +1,31 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Provider } from 'react-redux';
 import {
     Router,
     Route,
+    Switch,
     browserHistory
 } from 'react-router'
 import { ConnectedRouter } from 'react-router-redux'
-import App from '../components/App/App';
+import UserList from './UserList/UserList.component';
+import CompanyList from './CompanyList/CompanyList.component';
 
-export default function Root({
-    store,
+const Root = ({
     history
-}) {
-    return ( 
-    <Provider store = { store} > 
-      <div>
-        <ConnectedRouter history = { history } >
-          < Route path = "/" component = { App }/> 
-        </ConnectedRouter> 
-      </div> 
-    </Provider>
+}) => {
+    return (
+      <ConnectedRouter history = { history } >
+        <Switch>
+          < Route path = "/companies" component = { CompanyList }/> 
+          < Route path = "/users" component = { UserList }/> 
+        </Switch>
+      </ConnectedRouter> 
   );
 }
 
 Root.propTypes = {
-    store: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired
 };
+
+export default Root
+

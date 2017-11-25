@@ -1,0 +1,8 @@
+@import '../../variables.scss';
+.App {
+  &-container {
+    position: absolute;
+    right: 0;
+    width: calc( 100% - 6em)
+  }
+}

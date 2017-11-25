@@ -21,21 +21,9 @@ const users = (state = ['david', 'james', 'karl'], action) => {
     }
 };
 
-const homeState = (state = { shownList: "COMPANY" }, action) => {
-    switch (action.type) {
-        case types.SWITCH_LIST:
-            return { ...state, shownList: action.list };
-        default:
-            return state;
-    }
-};
-
-
-
 const rootReducer = combineReducers({
     companies,
     users,
-    homeState,
     routing
 });
 

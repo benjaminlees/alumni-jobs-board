@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { list, listItem } from './list.component.scss';
+import './list.component.scss';
 
-const List = ({li}) => {
+const List = ({ items }) => {
     return (
-        <div className="list">
+        <div className="List">
           {
-            li.map((item, index) => <div className="list_item" key={ index }>{ item }</div>)
+            items.map((item, index) => <div className="List-item" key={ index }>{ item }</div>)
           }
         </div>
     );

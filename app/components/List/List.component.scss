@@ -1,4 +1,4 @@
-.list {
+.List {
   position: absolute;
   width: 80%;
   left: 0;
@@ -6,12 +6,11 @@
   top: 2em;
   margin: auto;
   text-align: center;
-}
-
-.list_item {
-  border: solid 1px;
-  margin: 1em;
-  padding: 1em;
-  background-color: aquamarine;
-  text-transform: uppercase;
+  &-item {
+    border: solid 1px;
+    margin: 1em;
+    padding: 1em;
+    background-color: aquamarine;
+    text-transform: uppercase;
+  }
 }
