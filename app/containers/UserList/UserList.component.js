@@ -10,12 +10,31 @@ import * as actions from '../../actions/index.js'
 class UserList extends Component {
     constructor(props) {
       super(props)
+      this.state = { formIsVisible: false };
     }
+
+    toggleForm = () => {
+      return this
+        .setState({
+          formIsVisible: !this.state.formIsVisible
+        })
+    } 
+
     render() {
-        const { users } = this.props;
+        const { 
+          props: { users },
+          state: { formIsVisible },
+          toggleForm 
+        } = this;
         return (
           <div className="UserList">
-            <List items={ users }></List>
+            <List
+              items={ users } 
+              childrenAreShown = { formIsVisible }  
+              toggleChildren={ toggleForm }
+              >
+              { formIsVisible ? <p>form</p>: '' }
+            </List>
           </div>
         );
     }

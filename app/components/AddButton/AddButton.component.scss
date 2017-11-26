@@ -1,0 +1,29 @@
+.AddButton {
+  position: absolute;
+  border: none;
+  cursor: pointer;
+  font-size: 2em;
+  transition: font-size 0.3s;
+  &:hover {
+    font-size: 2.2em;
+  }
+  &:focus {
+    outline: none;
+  }
+  &--add {
+    &:after {
+      content: '+'
+    }
+  }
+  &--minus {
+    &:after {
+      content: '-'
+    }
+  }
+  &--right {
+    right: 0;
+  }
+  &--left {
+    left: 0;
+  }
+}

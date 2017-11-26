@@ -8,8 +8,10 @@
   &-link {
     position: relative;
     display: block;
+    cursor: pointer;
     width: 100%;
-    margin: 1em 0em;
+    margin: 1em;
+    padding: 1em;
     border: none;
     background: deepskyblue;
     box-shadow: none;
